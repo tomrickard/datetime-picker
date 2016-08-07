@@ -1,0 +1,22 @@
+{
+  "name": "npm-typescript-package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "typings": "./lib/index",
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "build": "tsc",
+    "stylus": "stylus ./stylus/app.styl -o ./dist/css/app.css",
+    "webpack": "webpack"
+  },
+  "author": "Thomas Rickard",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.1",
+    "stylus": "^0.54.5",
+    "typescript": "^1.8.10",
+    "webpack": "^1.13.1"
+  }
+}
