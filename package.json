@@ -5,8 +5,10 @@
   "main": "./lib/index.js",
   "typings": "./lib/index",
   "scripts": {
-    "test": "mocha --reporter spec",
+    "test": "mocha",
+    "typings": "typings install",
     "build": "tsc",
+    "build-watch": "tsc -w",
     "stylus": "stylus ./stylus/app.styl -o ./dist/css/app.css",
     "webpack": "webpack"
   },

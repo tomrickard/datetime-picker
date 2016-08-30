@@ -1,0 +1,10 @@
+export declare function isNumber(variable: any): boolean;
+export declare function isString(variable: any): boolean;
+export declare function isBoolean(variable: any): boolean;
+export declare function isArray(variable: any): boolean;
+export declare function isObject(variable: any): boolean;
+export declare function isFunction(variable: any): boolean;
+export declare function isDate(variable: any): boolean;
+export declare function isRegExp(variable: any): boolean;
+export declare function isUndefined(variable: any): boolean;
+export declare function isNull(variable: any): boolean;
