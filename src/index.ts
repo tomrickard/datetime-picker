@@ -44,3 +44,7 @@ var arc = function ( x, y, z=0 ): XYPoint {
 
 import * as check from './type-checker'
 console.log(check.isBoolean(true));
+
+function test(fname, sname?) {
+	return fname + sname
+}

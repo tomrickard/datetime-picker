@@ -32,3 +32,7 @@ export function isUndefined(variable) {
 export function isNull(variable) {
 	return type(variable) === '[object Null]'
 }
+
+export function types(args, types) {
+
+}

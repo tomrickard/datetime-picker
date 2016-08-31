@@ -8,3 +8,4 @@ export declare function isDate(variable: any): boolean;
 export declare function isRegExp(variable: any): boolean;
 export declare function isUndefined(variable: any): boolean;
 export declare function isNull(variable: any): boolean;
+export declare function types(args: any, types: any): void;
