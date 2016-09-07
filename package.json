@@ -6,19 +6,22 @@
   "typings": "./lib/index",
   "scripts": {
     "test": "mocha",
-    "typings": "typings install",
-    "build": "tsc",
-    "build-watch": "tsc -w",
+    "typings": "typings",
+    "tsc": "tsc",
+    "tsc-w": "tsc -w",
     "stylus": "stylus ./stylus/app.styl -o ./dist/css/app.css",
+    "stylus-w": "stylus ./stylus/app.styl -o ./dist/css/app.css -w",
+    "build": "npm run stylus && npm run tsc && npm run webpack",
     "webpack": "webpack"
   },
   "author": "Thomas Rickard",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.0.1",
     "stylus": "^0.54.5",
     "typescript": "^1.8.10",
+    "typings": "^1.3.3",
     "webpack": "^1.13.1"
   }
 }
