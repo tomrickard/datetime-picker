@@ -37,10 +37,10 @@ Rename the package.json name and version to you project name and version:
 Add your git repo `remote`
 ```
 // Github example
-https://github.com/<USER>/<REPO-NAME>.git
+git remote add https://github.com/<USER>/<REPO-NAME>.git
 
 // Bitbucket example
-https://<USER>@bitbucket.org/<USER>/<REPO-NAME>.git
+git remote add https://<USER>@bitbucket.org/<USER>/<REPO-NAME>.git
 ```
 
 Write some code!
