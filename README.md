@@ -1,6 +1,6 @@
 # Typescript Template
 
-A Typescript template for creating NPM packages. Also comes with webpack for generating generating bundles. The `.gitignore` and `.npmignore` files are setup appropriately. NPM will ignore all the TypeScript source files. There is a small type checking module included as a demonstration and to check all the npm scripts are working. Stylus (CSS pre-processor) is included.
+A Typescript template for creating NPM packages. Uses Webpack for generating generating bundles. The `.gitignore` and `.npmignore` files are setup appropriately. NPM will ignore all the TypeScript source files. There is a small type checking module included as a demonstration and to check all the npm scripts are working.
 
 ## Usage
 
