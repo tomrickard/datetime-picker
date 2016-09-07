@@ -1,17 +1,32 @@
-function getType(variable) {
+export interface Check {
+	args?: Function;
+	type?: Function;
+	number?: Function;
+	string?: Function;
+	boolean?: Function;
+	array?: Function;
+	object?: Function;
+	function?: Function;
+	date?: Function;
+	regexp?: Function;
+	undefined?: Function;
+	null?: Function;
+}
+
+function getType(variable: any) {
 	return Object.prototype.toString.call(variable).slice(8,-1)
 }
 
-function checkType(type) {
+function checkType(type: string): Function {
 	return function (variable) {
 		return getType(variable) === type;
 	}
 }
 
 // Object to contain type checking functions
-var check = {};
+var check: Check = {};
 
-function checkTypeExplicit(type, variable) {
+function checkTypeExplicit(type: string, variable: any): boolean {
 	return getType(variable) === type;
 }
 
@@ -24,10 +39,10 @@ function checkArgumentsExplicit(types, args) {
 	});
 }
 
-check['args'] = checkArgumentsExplicit;
-check['type'] = checkTypeExplicit;
+check.args = checkArgumentsExplicit;
+check.type = checkTypeExplicit;
 
-// Create short hand function
+// Create short hand functions
 // i.e. 
 // check.number()
 // check.string() etc.

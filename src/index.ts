@@ -1,43 +1,4 @@
-interface XYPoint {
-	type: "2dPoint",
-	center: [number, number, number]
-}
+import { check } from './type-checker';
 
-interface XYArc {
+check.type('Number', 1)
 
-}
-
-interface XYLine {
-
-}
-
-interface XYCircle {
-
-}
-
-interface XYPath {
-	type: "2dPath"
-	segments: (XYArc | XYLine)[]
-}
-
-interface XYNurbs {
-
-}
-
-interface XYModel {
-
-}
-
-var point = function ( x, y, z=0 ): XYPoint {
-	return {
-		type: "2dPoint",
-		center: [x, y, z]
-	}
-}
-
-var arc = function ( x, y, z=0 ): XYPoint {
-	return {
-		type: "2dPoint",
-		center: [x, y, z]
-	}
-}
