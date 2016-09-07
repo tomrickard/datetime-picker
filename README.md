@@ -75,6 +75,19 @@ npm run typings install --save someModule
 
 If running typings for the first time, make sure you tell the TypeScript compiler about the typings. Open `tsconfig.json` and add `"./typings/index.d.ts"` under the files section if it isn't already there.
 
+```
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "declaration": true,
+        "outDir": "lib/"
+    },
+    "files": [
+        "./src/index.ts",
+    ]
+}
+```
+
 # License
 
 MIT
