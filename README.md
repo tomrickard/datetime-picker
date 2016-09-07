@@ -10,6 +10,12 @@ Get a copy from Github
 git clone https://github.com/tomrickard/npm-typescript-template.git
 ```
 
+Install the NPM dependencies:
+
+```
+npm install
+```
+
 Remove or rename the Git `remote` with:
 
 ```
