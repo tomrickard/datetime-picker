@@ -1,6 +1,6 @@
 # Line-Chart
 
-A small and simple line charting module. Uses D3 under the hood. Written in Typscript.
+A small and simple datetime-picker. Uses D3 under the hood. Written in Typescript.
 
 ## Install
 
