@@ -1,4 +1,4 @@
-# Line-Chart
+# Datetime Picker
 
 A small and simple datetime-picker. Uses D3 under the hood. Written in Typescript.
 
