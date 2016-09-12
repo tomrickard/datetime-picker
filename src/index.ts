@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 
 function pick(selection, default_date, event_name) {
-	
+
 	// Create SVG element in selection
 	var svg = selection.append('svg')
 		.attr('viewBox', '0 0 350 80')
@@ -46,7 +46,7 @@ function pick(selection, default_date, event_name) {
 		.append('path')
 			.attr('id', 'arrow')
 			.attr('d', 'M 0,0 v-10 l20,10 l-20,10 v-10')
-			.attr('fill', 'rgb(150,150,150)')
+			.attr('fill', 'rgb(200,200,200)')
 			.attr('transform', 'translate(10,10)')
 
 		// Create reusable short arrow
@@ -54,12 +54,13 @@ function pick(selection, default_date, event_name) {
 			.append('path')
 				.attr('id', 'arrowShort')
 				.attr('d', 'M 0,0 v-10 l15,10 l-15,10 v-10')
-				.attr('fill', 'rgb(150,150,150)')
+				.attr('fill', 'rgb(200,200,200)')
 				.attr('transform', 'translate(10,10)')
 
 		// Date right arrow
 		svg.append('g')
 			.attr('id', 'dateRight')
+			.attr('class', 'arrowPad')
 			.attr('transform', 'translate(162,27)')
 			.on('click', function () {
 				changeDate(1)
@@ -70,6 +71,7 @@ function pick(selection, default_date, event_name) {
 		// Date left arrow
 		svg.append('g')
 			.attr('id', 'dateleft')
+			.attr('class', 'arrowPad')
 			.attr('transform', 'translate(40, 47) rotate(-180) ')
 			.on('click', function () {
 				changeDate(-1)
@@ -80,6 +82,7 @@ function pick(selection, default_date, event_name) {
 		// Hour up arrow
 		svg.append('g')
 			.attr('id', 'hourUp')
+			.attr('class', 'arrowPad')
 			.attr('transform', 'translate(230, 30) rotate(-90) ')
 			.on('click', function () {
 				changeHour(1)
@@ -90,6 +93,7 @@ function pick(selection, default_date, event_name) {
 		// Hour down arrow
 		svg.append('g')
 			.attr('id', 'hourDown')
+			.attr('class', 'arrowPad')
 			.attr('transform', 'translate(250, 45) rotate(90) ')
 			.on('click', function () {
 				changeHour(-1)
@@ -100,6 +104,7 @@ function pick(selection, default_date, event_name) {
 		// Minute up arrow
 		svg.append('g')
 			.attr('id', 'minuteUp')
+			.attr('class', 'arrowPad')
 			.attr('transform', 'translate(265, 30) rotate(-90) ')
 			.on('click', function () {
 				changeMinute(1)
@@ -110,6 +115,7 @@ function pick(selection, default_date, event_name) {
 		// Minute down arrow
 		svg.append('g')
 			.attr('id', 'minuteDown')
+			.attr('class', 'arrowPad')
 			.attr('transform', 'translate(285, 45) rotate(90) ')
 			.on('click', function () {
 				changeMinute(-1)
@@ -120,6 +126,7 @@ function pick(selection, default_date, event_name) {
 		// Second up arrow
 		svg.append('g')
 			.attr('id', 'secondUp')
+			.attr('class', 'arrowPad')
 			.attr('transform', 'translate(300, 30) rotate(-90) ')
 			.on('click', function () {
 				changeSecond(1)
@@ -130,6 +137,7 @@ function pick(selection, default_date, event_name) {
 		// Second down arrow
 		svg.append('g')
 			.attr('id', 'secondDown')
+			.attr('class', 'arrow')
 			.attr('transform', 'translate(320, 45) rotate(90) ')
 			.on('click', function () {
 				changeSecond(-1)
@@ -165,7 +173,7 @@ function pick(selection, default_date, event_name) {
 				.attr('x', '100')
 				.attr('y', '45')
 				.attr('text-anchor', 'middle')
-				.attr('fill', 'rgb(100,100,100)')
+				.attr('fill', 'rgb(80,80,80)')
 				.style('font-size', '22px')
 
 		// Data join for time string
@@ -188,7 +196,7 @@ function pick(selection, default_date, event_name) {
 				.attr('x', '275')
 				.attr('y', '45')
 				.attr('text-anchor', 'middle')
-				.attr('fill', 'rgb(100,100,100)')
+				.attr('fill', 'rgb(80,80,80)')
 				.style('font-size', '22px')
 
 		// On datetime update fire event with 
