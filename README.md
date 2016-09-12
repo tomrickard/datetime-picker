@@ -1,102 +1,127 @@
-# Typescript Template
+# Line-Chart
 
-A Typescript template for creating NPM packages. Uses Webpack for generating generating bundles. The `.gitignore` and `.npmignore` files are setup appropriately. NPM will ignore all the TypeScript source files. There is a small type checking module included as a demonstration and to check all the npm scripts are working.
+A small and simple line charting module. Uses D3 under the hood. Written in Typscript.
+
+## Install
+
+```
+npm install @tomrickard/datetime-picker
+
+// or just grab it directly
+add link
+```
+
+If using NPM:
+
+### Vanilla JS
+
+```
+<script type="text/javascript" src="node_modules/line-chart/dist/datetime-picker.js"></script>
+
+...
+```
+
+### Node/CommonJS
+
+```
+var dateTimePicker = require('datetime-picker')
+dateTimePicker.pick(selection, default_date, event_name)
+...
+```
+
+### Typescript
+
+Type definitions are included and should be found automatically by the typescript compiler
+
+```
+import * as dateTimePicker from 'datetime-picker' 
+dateTimePicker.pick(selection, default_date, event_name)
+...
+
+// or
+import { pick } from 'line-chart'
+pick(selection, default_date, event_name)
+...
+```
+
+## Quick Example
+
+In the HTML:
+
+```
+<body>
+
+	<div id="startDate" style="width: 400px">
+	</div>
+
+	<div id="endDate" style="width: 400px">
+	</div>
+
+	<div id="events"></div>
+
+</body>
+```
+
+JavaScript (loaded using script tag)
+
+```
+var start_selection = d3.select("#startDate");
+	var end_selection = d3.select("#endDate");
+	var default_date = new Date().toISOString();
+
+	var print_events = document.getElementById('events')
+
+	// Create a datetime-picker in start_selection div
+	// Updates will fire 'start_date' event
+	dateTimePicker.pick(start_selection, default_date, 'start_date');
+
+	// Create a datetime-picker in start_selection div
+	// Updates will fire 'start_date' event
+	dateTimePicker.pick(end_selection, default_date, 'end_date');
+
+	// Listen for datetime updates
+	document.addEventListener('start_date', function(e) {
+		console.log('start date: ' + e.detail);
+		var text = document.createElement('p')
+		text.textContent = 'start date: ' + e.detail;
+		print_events.appendChild(text)
+	});
+
+	document.addEventListener('end_date', function(e) {
+	  console.log('end date: ' + e.detail);
+	  var text = document.createElement('p')
+	  text.textContent = 'end date: ' + e.detail;
+	  print_events.appendChild(text)
+	});
+```
 
 ## Usage
 
-Get a copy from Github
+Datetime-picker exposes one method
 
 ```
-git clone https://github.com/tomrickard/npm-typescript-template.git
+dateTimePicker.pick(selection, default_date, event_name)
 ```
 
-Install the NPM dependencies:
+Where:
+
+*selection* - container Element for the datetime picker, an SVG element will be placed inside this Element.
+
+*default_date* - default date to display must be ISO8061 format, so use `new Date().toISOString()`.
+
+*event_name* - name of even that is fired when the datetime has changed.
+
+## Styling
+
+Arrows can be styled using:
 
 ```
-npm install
+// Date arrow
+def > path#arrow
+
+// Time arrows
+defs > path#shortArrow
 ```
-
-Remove or rename the Git `remote` with:
-
-```
-// Remove
-git remote rm origin
-// Rename
-git remote rename origin old-origin
-```
-
-Rename the package.json name and version to you project name and version:
-
-```
-{
-  "name": "YOUR-PACKAGE-NAME",
-  "version": "1.0.0",
-  ....
-
-  "author": "YOUR-NAME",
-  ...
-
-  }
-}
-```
-
-Add your git repo `remote`
-```
-// Github example
-git remote add https://github.com/<USER>/<REPO-NAME>.git
-
-// Bitbucket example
-git remote add https://<USER>@bitbucket.org/<USER>/<REPO-NAME>.git
-```
-
-Write some code!
-
-## NPM scripts
-
-```
-npm run test       // starts Mocha up, runs tests in the /test/ folder. Uses mocha.opts
-npm run typings    // runs local version of Typings (i.e. do npm run typings install someModule)
-npm run tsc        // runs TypeScript compiler (uses tsconfig.json as config file)
-npm run tsc-w      // runs TypeScript compiler in watch mode
-npm run webpack    // runs Webpack
-npm run stylus     // runs Stylus compiler (looks in stylus folder)
-npm run stylus-w   // runs Stylus compiler in watch mode
-npm run webpack    // runs webpack (uses webpack.config.js as config file)
-npm run build      // => npm run stylus && npm run tsc && npm run webpack
-```
-
-## Importing other NPM modules
-
-First install the module:
-
-```
-npm install --save someModule
-```
-
-If the module is written in TypeScript the type definition file/s should automatically be loaded when you import the module. If the module was written in JavaScript you will need to grab the type definitions using typings. Simply run:
-
-```
-npm run typings install --save someModule
-``` 
-
-If running typings for the first time, make sure you tell the TypeScript compiler about the typings. Open `tsconfig.json` and add `"./typings/index.d.ts"` under the files section if it isn't already there.
-
-```
-{
-    "compilerOptions": {
-        "module": "commonjs",
-        "declaration": true,
-        "outDir": "lib/"
-    },
-    "files": [
-        "./src/index.ts",
-    ]
-}
-```
-
-## Stylus
-
-Stylus is included as a personal preference. It makes it easy to generate CSS for packages designed to run in the browser. Feel free to delete it. It outputs to `dist/css`.
 
 # License
 

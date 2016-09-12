@@ -2,8 +2,8 @@ module.exports = {
 	entry: './lib/index.js',
 	output: {
 		path: './dist',
-		filename: 'bundle.js',
+		filename: 'datetime-picker.js',
 		libraryTarget: "var",
-		library: "Foo"
+		library: "dateTimePicker"
 	}
 };

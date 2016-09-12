@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="Content-type">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Basic Example</title>
+	<link rel="stylesheet" type="text/css" href="css/datetime-picker.css">
+	<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+	<script type="text/javascript" src="datetime-picker.js"></script>
+	<script type="text/javascript">
+		
+		document.addEventListener('DOMContentLoaded', function () {
+		 	
+		 	var start_selection = d3.select("#startDate");
+		 	var end_selection = d3.select("#endDate");
+		 	var default_date = new Date().toISOString();
+
+		 	var print_events = document.getElementById('events')
+
+		 	// Create a datetime-picker in start_selection div
+		 	// Updates will fire 'start_date' event
+		 	dateTimePicker.pick(start_selection, default_date, 'start_date');
+
+		 	// Create a datetime-picker in start_selection div
+		 	// Updates will fire 'start_date' event
+		 	dateTimePicker.pick(end_selection, default_date, 'end_date');
+
+		 	// Listen for datetime updates
+		 	document.addEventListener('start_date', function(e) {
+			  console.log('start date: ' + e.detail);
+			  var text = document.createElement('p')
+			  text.textContent = 'start date: ' + e.detail;
+			  print_events.appendChild(text)
+			});
+
+			document.addEventListener('end_date', function(e) {
+			  console.log('end date: ' + e.detail);
+			  var text = document.createElement('p')
+			  text.textContent = 'end date: ' + e.detail;
+			  print_events.appendChild(text)
+			});
+
+			
+		});
+	</script>
+</head>
+<body>
+
+	<div id="startDate" style="width: 400px">
+	</div>
+
+	<div id="endDate" style="width: 400px">
+	</div>
+
+	<div id="events"></div>
+
+</body>
+</html>

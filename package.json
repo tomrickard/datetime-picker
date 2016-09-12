@@ -1,6 +1,6 @@
 {
-  "name": "npm-typescript-package",
-  "version": "1.0.0",
+  "name": "datetime-picker",
+  "version": "0.0.0",
   "description": "",
   "main": "./lib/index.js",
   "typings": "./lib/index",
@@ -9,8 +9,8 @@
     "typings": "typings",
     "tsc": "tsc",
     "tsc-w": "tsc -w",
-    "stylus": "stylus ./stylus/app.styl -o ./dist/css/app.css",
-    "stylus-w": "stylus ./stylus/app.styl -o ./dist/css/app.css -w",
+    "stylus": "stylus ./stylus/default.styl -o ./dist/css/datetime-picker.css",
+    "stylus-w": "stylus ./stylus/default.styl -o ./dist/css/datetime-picker.css -w",
     "build": "npm run stylus && npm run tsc && npm run webpack",
     "webpack": "webpack"
   },
@@ -22,6 +22,7 @@
     "stylus": "^0.54.5",
     "typescript": "^1.8.10",
     "typings": "^1.3.3",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "d3": "^4.2.2"
   }
 }
