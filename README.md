@@ -16,6 +16,7 @@ If using NPM:
 ### Vanilla JS
 
 ```
+<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
 <script type="text/javascript" src="node_modules/line-chart/dist/datetime-picker.js"></script>
 
 ...
@@ -24,6 +25,7 @@ If using NPM:
 ### Node/CommonJS
 
 ```
+var d3 = require('d3')
 var dateTimePicker = require('datetime-picker')
 dateTimePicker.pick(selection, default_date, event_name)
 ...
@@ -34,11 +36,13 @@ dateTimePicker.pick(selection, default_date, event_name)
 Type definitions are included and should be found automatically by the typescript compiler
 
 ```
+import * as d3 from 'd3'
 import * as dateTimePicker from 'datetime-picker' 
 dateTimePicker.pick(selection, default_date, event_name)
 ...
 
 // or
+import * as d3 from 'd3'
 import { pick } from 'line-chart'
 pick(selection, default_date, event_name)
 ...
@@ -62,7 +66,7 @@ In the HTML:
 </body>
 ```
 
-JavaScript (loaded using script tag)
+JavaScript (loaded using script tag, remember to include D3 v4)
 
 ```
 var start_selection = d3.select("#startDate");
@@ -97,6 +101,12 @@ var start_selection = d3.select("#startDate");
 
 ## Usage
 
+Depends on D3 v4, add:
+
+```
+<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+```
+
 Datetime-picker exposes one method
 
 ```
@@ -105,7 +115,7 @@ dateTimePicker.pick(selection, default_date, event_name)
 
 Where:
 
-*selection* - container Element for the datetime picker, an SVG element will be placed inside this Element.
+*selection* - container Element for the datetime picker, an SVG element will be placed inside this Element. Use d3.select()
 
 *default_date* - default date to display must be ISO8061 format, so use `new Date().toISOString()`.
 
